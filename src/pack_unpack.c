@@ -88,7 +88,7 @@ static json_t *pack(scanner_t *s, va_list *ap);
 
 static json_t *pack_object(scanner_t *s, va_list *ap)
 {
-    json_t *object = json_object();
+    json_t *object = json_object_postgres_protected();
     next_token(s);
 
     while(s->token != '}') {

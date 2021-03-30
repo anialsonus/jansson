@@ -78,7 +78,7 @@ typedef long json_int_t;
 
 /* construction, destruction, reference counting */
 
-json_t *json_object(void);
+json_t *json_object_postgres_protected(void);
 json_t *json_array(void);
 json_t *json_string(const char *value);
 json_t *json_string_nocheck(const char *value);

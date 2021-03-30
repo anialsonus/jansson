@@ -13,7 +13,7 @@
 
     Example:
 
-    .. cfunction:: json_t *json_object(void)
+    .. cfunction:: json_t *json_object_postgres_protected(void)
 
        .. refcounting:: new
 

@@ -16,7 +16,7 @@ static void encode_twice()
     json_t *json;
     char *result;
 
-    json = json_object();
+    json = json_object_postgres_protected();
     result = json_dumps(json, 0);
     if(!result || strcmp(result, "{}"))
       fail("json_dumps failed");
@@ -58,9 +58,9 @@ static void circular_references()
     json_t *json;
     char *result;
 
-    json = json_object();
-    json_object_set_new(json, "a", json_object());
-    json_object_set_new(json_object_get(json, "a"), "b", json_object());
+    json = json_object_postgres_protected();
+    json_object_set_new(json, "a", json_object_postgres_protected());
+    json_object_set_new(json_object_get(json, "a"), "b", json_object_postgres_protected());
     json_object_set(json_object_get(json_object_get(json, "a"), "b"), "c",
                     json_object_get(json, "a"));
 

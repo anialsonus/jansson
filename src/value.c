@@ -26,7 +26,7 @@ static JSON_INLINE void json_init(json_t *json, json_type type)
 
 /*** object ***/
 
-json_t *json_object(void)
+json_t *json_object_postgres_protected(void)
 {
     json_object_t *object = jsonp_malloc(sizeof(json_object_t));
     if(!object)
@@ -272,7 +272,7 @@ static json_t *json_object_copy(json_t *object)
     const char *key;
     json_t *value;
 
-    result = json_object();
+    result = json_object_postgres_protected();
     if(!result)
         return NULL;
 
@@ -289,7 +289,7 @@ static json_t *json_object_deep_copy(json_t *object)
     const char *key;
     json_t *value;
 
-    result = json_object();
+    result = json_object_postgres_protected();
     if(!result)
         return NULL;
 

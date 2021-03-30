@@ -228,7 +228,7 @@ A circular reference is created when an object or an array is,
 directly or indirectly, inserted inside itself. The direct case is
 simple::
 
-  json_t *obj = json_object();
+  json_t *obj = json_object_postgres_protected();
   json_object_set(obj, "foo", obj);
 
 Jansson will refuse to do this, and :func:`json_object_set()` (and
@@ -501,7 +501,7 @@ Object
 A JSON object is a dictionary of key-value pairs, where the key is a
 Unicode string and the value is any JSON value.
 
-.. function:: json_t *json_object(void)
+.. function:: json_t *json_object_postgres_protected(void)
 
    .. refcounting:: new
 
